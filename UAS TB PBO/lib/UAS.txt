@@ -1,4 +1,6 @@
-// Buatlah sebuah program tiket waterpark. Terdapat class tiket weekend, class tiket weekdays, class pembeli, class transaksi. Didalam program tersebut terdapat materi-materi berikut serta penjelasan nya, yaitu:
+TUGAS BESAR :
+
+Buatlah sebuah program tiket waterpark. Terdapat class tiket weekend, class tiket weekdays, class pembeli, class transaksi. Didalam program tersebut terdapat materi-materi berikut serta penjelasan nya, yaitu:
 
 1. Terdiri dari beberapa class, objek, dan construktor
 2. Memiliki interface dan implementasi dari interface tersebut
