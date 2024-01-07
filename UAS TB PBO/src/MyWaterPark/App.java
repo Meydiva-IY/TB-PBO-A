@@ -25,7 +25,7 @@ public class App {
                 // Perulangan while
                 while (isLanjutkan) {
 
-                    System.out.println("------------------------------------------------");
+                    System.out.println("================================================");
                     System.out.println("           APLIKASI TIKET MY WATERPARK          ");
                     System.out.println("================================================");
                     System.out.println("Selamat Datang, User!");
@@ -37,7 +37,7 @@ public class App {
                     System.out.println("Hari\t" + tanggal.format(today).toUpperCase());
                     System.out.println("Waktu\t" + waktu.format(today).toUpperCase());
 
-                   // HashMap untuk menyimpan nilai dari jenis tiket
+                    // HashMap untuk menyimpan nilai dari jenis tiket
                     HashMap<String, Integer> jenistiket = new HashMap<>();
                     jenistiket.put("Dewasa", 20000);
                     jenistiket.put("Anak", 10000);
@@ -45,19 +45,20 @@ public class App {
                     // Harga tiket saat weekend
                     HashMap<String, Integer> hargaTiketWeekend = new HashMap<>();
                     for (String jenis : jenistiket.keySet()) {
-                        int hargaNormal = jenistiket.get(jenis);
-                        int hargaWeekend = (int) (hargaNormal * 1.5);
-                        hargaTiketWeekend.put(jenis, hargaWeekend);
+                    int hargaNormal = jenistiket.get(jenis);
+                    int hargaWeekend = (int) (hargaNormal * 1.5);
+                    hargaTiketWeekend.put(jenis, hargaWeekend);
                     }
-                    // Output harga normal
-                    System.out.println("\n|    Daftar Harga Tiket Saat Weekdays      |");
-                    System.err.println("|    Tiket Weekdays Anak Harga Rp. 10000     |");
-                    System.err.println("|    Tiket Weekdays Dewasa Harga Rp. 20000   |");
 
-                    // Output harga berlaku saat weekend
-                    System.out.println("\n|    Daftar Harga Tiket Saat Weekend       |");
-                    System.err.println("|    Penambahan Harga Rp. 5000 untuk Anak    |");
-                    System.err.println("|    Penambahan Harga Rp. 10000 untuk Dewasa |");
+                    // Construct dan print array table
+                    System.out.println("Berikut Daftar Harga Tiket : ");
+                    System.out.println("-------------------------------------------------");
+                    System.out.printf("| %-8s | %-15s | %-15s |\n", "Jenis", "Hari Biasa (Rp)", "Weekend (Rp)");
+                    System.out.println("-------------------------------------------------");
+                    for (String jenis : jenistiket.keySet()) {
+                        System.out.printf("| %-8s | %-15d | %-15d |\n", jenis, jenistiket.get(jenis), hargaTiketWeekend.get(jenis));
+                    }
+                    System.out.println("-------------------------------------------------");
                     System.out.println(" ");
                     // pilihan menu transaksi
                     System.out.println("------------------------------------------------");

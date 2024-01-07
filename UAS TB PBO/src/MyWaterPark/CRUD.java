@@ -14,6 +14,7 @@ public class CRUD extends DatabaseConnection implements Transaksi {
     public Integer uangBayar;
     public Integer kembalian;
     public Integer jenisHari;
+
     // deklarasi variabel harga
     public Integer hargaA = 10000;
     public Integer hargaD = 20000;
@@ -33,7 +34,7 @@ public class CRUD extends DatabaseConnection implements Transaksi {
 
     @Override
     public void newTransaction() throws SQLException {
-        // Implementasi constructor newTransaction
+
         System.out.print("Masukkan No Transaksi = ");
         noTransaksi = input.nextInt();
         System.out.print("Masukkan Nama Pembeli = ");
@@ -63,8 +64,7 @@ public class CRUD extends DatabaseConnection implements Transaksi {
                 uangBayar = input.nextInt();
                 // kembalian
                 kembalian = uangBayar - harga; // Pengurangan
-
-                // penampilan tarif didemo program
+                // penampilan harga didemo program
                 System.out.println("\n--------------------------------------");
                 System.out.println("Kembalian = " + kembalian);
                 System.out.println("Total Bayar = " + harga);
@@ -141,8 +141,7 @@ public class CRUD extends DatabaseConnection implements Transaksi {
             System.out.print(result.getInt("uangBayar"));
             System.out.print("\nKembalian\t: ");
             System.out.print(result.getInt("kembalian"));
-            System.out.println("\n--------------------------------------");
-        }
+            System.out.println("\n--------------------------------------");}
     }
 
     @Override
@@ -174,12 +173,11 @@ public class CRUD extends DatabaseConnection implements Transaksi {
     public void updateTransaction() throws SQLException {
         // Implementasi constructor updateTransaction
         System.out.print("***UBAH DATA TRANSAKSI***\n");
-
+        Scanner input = new Scanner(System.in);
         try {
             viewTransaction();
             System.out.print("\nMasukkan No Transaksi yang akan diubah : ");
             Integer noTransaksi = Integer.parseInt(input.nextLine());
-
             String sql = "SELECT * FROM transaksi WHERE noTransaksi  = " + noTransaksi;
             conn = DriverManager.getConnection(url, "root", "");
             Statement statement = conn.createStatement();
@@ -190,7 +188,7 @@ public class CRUD extends DatabaseConnection implements Transaksi {
                 String namaPembeli = input.nextLine();
 
                 // sql untuk mengubah data yang ada pada databases
-                sql = "UPDATE transaksi SET namaPembeli='" + namaPembeli + "' WHERE noTransaksi = " + noTransaksi;
+                sql = "UPDATE transaksi SET namaPembeli ='" + namaPembeli + "' WHERE noTransaksi = " + noTransaksi;
                 System.out.println(sql);
 
                 if (statement.executeUpdate(sql) > 0) {
@@ -234,7 +232,6 @@ public class CRUD extends DatabaseConnection implements Transaksi {
             System.out.print("\nKembalian\t: ");
             System.out.print(result.getInt("kembalian"));
             System.out.println("");
-            System.out.println("--------------------------------------");
-            }
+            System.out.println("--------------------------------------");}
     }
 }
